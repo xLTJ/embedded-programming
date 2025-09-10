@@ -8,7 +8,7 @@ initialSP: DB 0	; init position of SP, to check when its empty
 
 start:
 	MOV [initialSP], sp
-	MOV D, 232		; D = output
+	MOV D, 232			; D = output
 	MOV C, [number1]	; C = value of number1
 	ADD C, [number2]	; C = result of addition
 getDigit:			
