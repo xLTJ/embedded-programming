@@ -2,17 +2,23 @@
 
 constexpr int ledPins[] = {12, 11, 10, 9};
 constexpr  int buttonPin = 2;
-constexpr long interval = 500;
+constexpr long interval = 100;
+
+enum state {
+    Idle,
+    Running,
+    Stopped,
+};
 
 // other variables
 constexpr int ledAmount = sizeof(ledPins) / sizeof(ledPins[0]);
-bool lampsOn = false;
 unsigned long previousTime;
 int ledIndex = 0;
-bool ledActive = false;
+state currentState = Idle;
 
 // protoypes
 void handleLeds();
+void handleButton();
 
 // program
 void setup() {
@@ -27,29 +33,39 @@ void setup() {
 void loop() {
     // if button is pressed, do shit
     if (digitalRead(buttonPin) == LOW) {
-        lampsOn = !lampsOn; // update state
+        handleButton();
         delay(500);
     }
 
     const unsigned long currentTime = millis();
-    if (lampsOn && currentTime - previousTime > interval) {
+    if (currentState == Running && currentTime - previousTime > interval) {
         handleLeds();
         previousTime = currentTime;
     }
 }
 
 void handleLeds() {
-    if (ledActive) {
-        digitalWrite(ledPins[ledIndex], LOW);
-        Serial.print("Turned LED off: ");
-        Serial.println(ledPins[ledIndex]);
+    digitalWrite(ledPins[ledIndex], LOW);
+    Serial.print("Turned LED off: ");
+    Serial.println(ledPins[ledIndex]);
 
-        ledIndex = (ledIndex + 1) % ledAmount;
-        ledActive = false;
-    } else {
-        digitalWrite(ledPins[ledIndex], HIGH);
-        Serial.print("Turned LED on: ");
-        Serial.println(ledPins[ledIndex]);
-        ledActive = true;
+    ledIndex = (ledIndex + 1) % ledAmount;
+    digitalWrite(ledPins[ledIndex], HIGH);
+    Serial.print("Turned LED on: ");
+    Serial.println(ledPins[ledIndex]);
+}
+
+void handleButton() {
+    switch (currentState) {
+        case Stopped:
+            digitalWrite(ledPins[ledIndex], LOW);
+            currentState = Idle;
+            break;
+        case Idle:
+            currentState = Running;
+            break;
+        case Running:
+            currentState = Stopped;
+            break;
     }
 }
