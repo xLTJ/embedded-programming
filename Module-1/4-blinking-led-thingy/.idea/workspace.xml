@@ -23,8 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f70ab32-adbc-4c37-a36e-3f2d7e29b8a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../8_reaction-game/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../6_LED-strip/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../6_LED-strip/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
