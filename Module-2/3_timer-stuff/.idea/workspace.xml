@@ -21,10 +21,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89a27291-4c1f-4038-ac9d-676848f0fa28" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../1_internal-temperature/src/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_potentiometer/src/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Module-1/4-blinking-led-thingy/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module-1/4-blinking-led-thingy/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5_adding-button/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5_adding-button/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5_adding-button/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5_adding-button/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5_adding-button/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4_averageing-timers/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../4_averageing-timers/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1758706407179</updated>
       <workItem from="1758706407781" duration="1672000" />
-      <workItem from="1758709536352" duration="11096000" />
+      <workItem from="1758709536352" duration="11422000" />
     </task>
     <servers />
   </component>
@@ -134,7 +138,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/main.cpp</url>
-          <line>32</line>
+          <line>33</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -6,10 +6,14 @@ constexpr int Comp2AValue = 156; // 20000 gives us 10 ms between each interrupt 
 constexpr int Comp1AValue = 15525; // 1s with prescaler 1024
 constexpr int Comp1BValue = 46875; // 3s with prescaler 1024
 constexpr int PotentiometerPin = 3;
+constexpr int ButtonPin = 2;
+constexpr int ledPins[] = {9, 10, 11, 12};
+constexpr int lightThreshold[] = {0, 300, 600, 900};
 
 // prototypes
 float readInternalTemp();
 void enableTemperatureRead();
+void handleButton();
 
 // global vars (the arrays have a bit of extra space justt in case.)
 long totalPotentiometerReadings = 0;
@@ -17,31 +21,70 @@ int potentiometerReadingCount = 0;
 float totalInternalTemperature = 0;
 int internalTemperatureCount = 0;
 
-// actual stuff
+bool readingState = true;
+unsigned long previousButtonPress;
+
+// actual stuff --------------------------------------
+// potentiometer readings
 ISR(TIMER2_COMPA_vect) {
+    if (!readingState) {
+        return;
+    }
+
     OCR2A += Comp2AValue;
     totalPotentiometerReadings += analogRead(PotentiometerPin);
     potentiometerReadingCount++;
 }
 
+// temperature readings
 ISR(TIMER1_COMPA_vect) {
+    if (!readingState) {
+        return;
+    }
+
     OCR1A += Comp1AValue;
     totalInternalTemperature += readInternalTemp();
     internalTemperatureCount++;
 }
 
+// output handling
 ISR(TIMER1_COMPB_vect) {
+    if (!readingState) {
+        return;
+    }
+
+    int averagePotentiometer = totalPotentiometerReadings / potentiometerReadingCount;
+    int averageInternalTemperature = totalInternalTemperature / internalTemperatureCount;
+
+    // console
     OCR1B += Comp1BValue;
     Serial.print("Potentiometer: ");
-    Serial.println(totalPotentiometerReadings / potentiometerReadingCount);
+    Serial.println(averagePotentiometer);
     Serial.print("Internal Temperature: ");
-    Serial.println(totalInternalTemperature / internalTemperatureCount);
+    Serial.println(averageInternalTemperature);
 
     totalPotentiometerReadings = potentiometerReadingCount = internalTemperatureCount = totalInternalTemperature = 0;
+
+    // lights
+    int i = 0;
+    for (const int ledPin : ledPins) {
+        if (averagePotentiometer > lightThreshold[i]) {
+            digitalWrite(ledPin, HIGH);
+        } else {
+            digitalWrite(ledPin, LOW);
+        }
+        i++;
+    }
 }
 
 void setup() {
     Serial.begin(9600);
+    pinMode(ButtonPin, INPUT);
+    for (const int ledPin : ledPins) {
+        pinMode(ledPin, OUTPUT);
+    }
+
+    attachInterrupt(0, handleButton, CHANGE);
 
     // reset timer registers
     TCCR1A = 0;
@@ -50,12 +93,12 @@ void setup() {
     TCCR2B = 0;
 
     // for timer 2
-    TCCR2B |= (1 << CS12) | (1 << CS11) | (1 << CS10); // prescaler = 1024 (Set CS10, CS11, CS12 to 1)
+    TCCR2B |= (1 << CS12) | (1 << CS11) | (1 << CS10); // prescaler = 8 (Set CS10, CS11, CS12 to 1)
     OCR2A = Comp2AValue; // compare value
     TIMSK2 |= (1 << OCIE2A); // enable compare A interrupt
 
     // for timer 1
-    TCCR1B |= (1 << CS12) | (1 << CS10);
+    TCCR1B |= (1 << CS12) | (1 << CS10); // prescaler = 1024
     OCR1A = Comp1AValue;
     OCR1B = Comp1BValue;
     TIMSK1 |= (1 << OCIE1A);
@@ -63,7 +106,7 @@ void setup() {
 }
 
 void loop() {
-    // bruh
+    // bwaa
 }
 
 float readInternalTemp() {
@@ -93,4 +136,23 @@ float readInternalTemp() {
     temp -= 25;
 
     return (float)temp;
+}
+
+void handleButton() {
+    const unsigned long currentTime = millis(); // for checking time since last press (debounce)
+
+    if (digitalRead(ButtonPin) != LOW || currentTime - previousButtonPress < 1000) {
+        return;
+    }
+
+    readingState = !readingState;
+    Serial.print(" --------- Reading state: ");
+    Serial.print(readingState == true ? "ON" : "OFF");
+    Serial.println("  ---------\n");
+
+    previousButtonPress = currentTime;
+
+    for (const int ledPin : ledPins) {
+        digitalWrite(ledPin, LOW);
+    }
 }
