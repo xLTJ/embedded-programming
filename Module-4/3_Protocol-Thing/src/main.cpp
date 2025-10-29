@@ -5,9 +5,9 @@
 constexpr int LedPin = 7;
 constexpr int ButtonPin = 8;
 
-QueueHandle_t DelayChangeQueue = xQueueCreate(10, sizeof(int));
-QueueHandle_t ButtonInstructionQueue = xQueueCreate(10, sizeof(int));
-QueueHandle_t ButtonResponseQueue = xQueueCreate(10,  sizeof(int));
+QueueHandle_t DelayChangeQueue;
+QueueHandle_t ButtonInstructionQueue;
+QueueHandle_t ButtonResponseQueue;
 
 enum ButtonInstruction {
     SAVE,
@@ -21,6 +21,9 @@ enum ButtonInstruction {
 
 void setup() {
     Serial.begin(9600);
+    DelayChangeQueue = xQueueCreate(10, sizeof(int));
+    ButtonInstructionQueue = xQueueCreate(10, sizeof(int));
+    ButtonResponseQueue = xQueueCreate(10, sizeof(unsigned long));
 
     pinMode(LedPin, OUTPUT);
     pinMode(ButtonPin, INPUT_PULLUP);
@@ -65,7 +68,7 @@ void setup() {
 }
 
 void loop() {
-// write your code here
+    // no
 }
 
 [[noreturn]] void taskReadInput(void *_) {
