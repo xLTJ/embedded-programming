@@ -22,7 +22,34 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f70ab32-adbc-4c37-a36e-3f2d7e29b8a3" name="Changes" comment="" />
+    <list default="true" id="3f70ab32-adbc-4c37-a36e-3f2d7e29b8a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/1_Potentiometer-light-dimmer/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/1_Potentiometer-light-dimmer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/1_Potentiometer-light-dimmer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/1_Potentiometer-light-dimmer/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/2_DHT11/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/2_DHT11/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/5_LCD-Screen/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-3/5_LCD-Screen/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/1_LED-Task/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/2_Four-LED-Task/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/2_Four-LED-Task/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/2_Four-LED-Task/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/2_Four-LED-Task/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/2_Four-LED-Task/src/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/3_Protocol-Thing/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/3_Protocol-Thing/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/3_Protocol-Thing/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/3_Protocol-Thing/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Module-4/3_Protocol-Thing/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module-2/1_internal-temperature/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module-2/1_internal-temperature/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module-2/3_timer-stuff/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module-2/3_timer-stuff/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Module-2/6_light-indicator/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Module-2/6_light-indicator/.idea/discord.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,33 +69,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../4_blinking-led-thingy/src/main.cpp" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="PlatformioLocalSettings">
-    <option name="availableProjects">
-      <map>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="4-blinking-led-thingy" />
-              <option name="path" value="$PROJECT_DIR$" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="4-blinking-led-thingy" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -104,11 +104,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PlatformIO" type="platformio" factoryName="PlatformIO Debug" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="4-blinking-led-thingy" TARGET_NAME="PlatformIO" CONFIG_NAME="PlatformIO">
       <method v="2" />
     </configuration>
@@ -121,6 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1757496335081</updated>
       <workItem from="1757496336339" duration="2488000" />
+      <workItem from="1761679968157" duration="3067000" />
     </task>
     <servers />
   </component>

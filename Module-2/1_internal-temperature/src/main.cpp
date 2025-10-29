@@ -40,3 +40,4 @@ float readInternalTemp() {
 
     return (float)temp;
 }
+
