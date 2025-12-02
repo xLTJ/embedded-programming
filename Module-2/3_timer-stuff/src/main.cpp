@@ -2,7 +2,7 @@
 #include <avr/boot.h>
 
 // consts
-constexpr int Comp2AValue = 156; // 20000 gives us 10 ms between each interrupt (with prescaler 8)
+constexpr int Comp2AValue = 156; // 10 ms between each interrupt (with prescaler 1024)
 constexpr int Comp1AValue = 15525; // 1s with prescaler 1024
 constexpr int Comp1BValue = 46875; // 3s with prescaler 1024
 constexpr int PotentiometerPin = 3;
